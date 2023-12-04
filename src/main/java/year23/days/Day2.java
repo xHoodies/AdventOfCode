@@ -1,6 +1,6 @@
 package main.java.year23.days;
 
-import main.java.common.StringManipulation;
+import main.java.common.InputManipulation;
 import main.java.year23.Day2023;
 
 import java.io.File;
@@ -8,13 +8,13 @@ import java.util.Scanner;
 
 public class Day2 extends Day2023 {
 
-    static final File inputFile = new File(filePath + "day2Input.txt");
+    static final File inputFile = new File(filePathInput + "day2Input.txt");
     static final int maxBlue = 14;
     static final int maxRed = 12;
     static final int maxGreen = 13;
 
     public Day2() {
-        super(1);
+        super(2);
     }
 
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class Day2 extends Day2023 {
 
     @Override
     public Object part1() {
-        Scanner input = new StringManipulation().getScannerFromFile(inputFile);
+        Scanner input = new InputManipulation().getScannerFromFile(inputFile);
 
         int sum = 0;
         while (input.hasNextLine()) {
@@ -36,7 +36,7 @@ public class Day2 extends Day2023 {
 
     @Override
     public Object part2() {
-        Scanner input = new StringManipulation().getScannerFromFile(inputFile);
+        Scanner input = new InputManipulation().getScannerFromFile(inputFile);
 
         int sum = 0;
         while (input.hasNextLine()) {

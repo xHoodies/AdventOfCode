@@ -1,6 +1,6 @@
 package main.java.year23.days;
 
-import main.java.common.StringManipulation;
+import main.java.common.InputManipulation;
 import main.java.year23.Day2023;
 
 import java.io.File;
@@ -31,7 +31,7 @@ public class Day1 extends Day2023 {
 
     @Override
     public Object part1() {
-        List<String> input = new StringManipulation().getListofPartitionedTxtFile("year23\\input\\day1Input.txt");
+        List<String> input = new InputManipulation().getListofPartitionedTxtFile("year23\\input\\day1Input.txt");
 
         return getSumOfCalibrationValues(input);
     }

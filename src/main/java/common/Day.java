@@ -1,6 +1,7 @@
 package main.java.common;
 
 public abstract class Day {
+    public static final String filePathCommon = "C:\\Users\\ditte\\IdeaProjects\\AoC\\src\\main\\java\\";
     public static final String DEFAULT_DELIMITER = "\n";
     protected final int year;
     protected final int day;
