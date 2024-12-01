@@ -19,7 +19,7 @@ public class Main {
 
             for (int day = 1; day <= 25; day++) {
                 System.out.println("\n" + "Day " + day + ":");
-                Day instance = (Day) Class.forName("main.java.year23.days.Day" + day).getDeclaredConstructor().newInstance();
+                Day instance = (Day) Class.forName("main.java.year24.days.Day" + day).getDeclaredConstructor().newInstance();
                 instance.printSolution();
                 System.out.println();
             }
