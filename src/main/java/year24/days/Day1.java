@@ -1,10 +1,8 @@
 package main.java.year24.days;
 
-import main.java.common.InputManipulation;
 import main.java.common.StringManipulation;
 import main.java.year24.Day2024;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,42 +15,41 @@ public class Day1 extends Day2024 {
 
     @Override
     public Object part1() {
-        return getDistanceBetweenSortedLists("src\\main\\java\\year24\\input\\day1InputTest.txt");
+        return getDistanceBetweenSortedLists(getListsOfDestinations());
     }
 
     @Override
     public Object part2() {
-        return getSimilarityScore("src\\main\\java\\year24\\input\\day1InputTest.txt");
+        return getSimilarityScore(getListsOfDestinations());
     }
 
     public Day1() {
         super(1);
     }
 
-    private Integer getDistanceBetweenSortedLists(String input) {
-        List<List<Integer>> listsOfDestinations = new StringManipulation().partitionStringByWhitespaceAndComma(input, 2);
+    private List<List<Integer>> getListsOfDestinations() {
+        return new StringManipulation().partitionStringByWhitespaceAndComma(filePathInput + "day1InputTest.txt", 2);
+    }
+
+    private Integer getDistanceBetweenSortedLists(List<List<Integer>> listsOfDestinations) {
+        listsOfDestinations.forEach(Collections::sort);
 
         List<Integer> list1 = listsOfDestinations.get(0);
         List<Integer> list2 = listsOfDestinations.get(1);
 
-        Collections.sort(list1);
-        Collections.sort(list2);
-
         return calculateSum(list1, list2);
     }
 
-    private Integer getSimilarityScore(String input) {
+    private Integer getSimilarityScore(List<List<Integer>> listsOfDestinations) {
         int score = 0;
-
-        List<List<Integer>> listsOfDestinations = new StringManipulation().partitionStringByWhitespaceAndComma(input, 2);
 
         List<Integer> list1 = listsOfDestinations.get(0);
         List<Integer> list2 = listsOfDestinations.get(1);
 
         for (int number : list1) {
-            int numberOfOccurances = Collections.frequency(list2, number);
+            int numberOfOccurrences = Collections.frequency(list2, number);
 
-            score += number * numberOfOccurances;
+            score += number * numberOfOccurrences;
         }
 
         return score;

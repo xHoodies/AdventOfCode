@@ -19,6 +19,11 @@ public class StringManipulation {
                 .split(",")));
     }
 
+    public List<String> partitionStringByWhiteSpace(String input) {
+        return new ArrayList<String>(Arrays.asList(input
+                .split("\\s+")));
+    }
+
     public List<List<Integer>> partitionStringByWhitespaceAndComma(String input, int numbersOnLine) {
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
