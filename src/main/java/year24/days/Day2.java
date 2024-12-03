@@ -86,7 +86,7 @@ public class Day2 extends Day2024 {
             // Check difference between adjacent levels
             int difference = Math.abs(curr - prev);
             if (difference < MIN_DIFFERENCE || difference > MAX_DIFFERENCE) {
-                return isSafe = false;
+                return false;
             }
 
             // Check if levels are increasing or decreasing
