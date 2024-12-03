@@ -96,24 +96,14 @@ public class Day3 extends Day2024 {
     }
 
     private int getProductsInRow(String row) {
-        // Regular expression to match mul(number,number) where number is 1-3 digits
-        String regex = "mul\\((\\d{1,3}),\\s*(\\d{1,3})\\)";
-
-        // Compile the pattern
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(row);
+        Matcher matcher = getMulMatcher(row);
 
         int product = 0;
 
         // Find all matches
         while (matcher.find()) {
-
-            // Extract the two numbers from the match
-            int num1 = Integer.parseInt(matcher.group(1));
-            int num2 = Integer.parseInt(matcher.group(2));
-
             // Multiply the numbers
-            product += num1 * num2;
+            product += calculateProductFromMatcher(matcher);
         }
 
         return product;
@@ -143,6 +133,7 @@ public class Day3 extends Day2024 {
     }
 
     private Matcher getMulMatcher(String row) {
+        // Regular expression to match mul(number,number) where number is 1-3 digits
         String regexMul = "mul\\((\\d{1,3}),\\s*(\\d{1,3})\\)";
         Pattern patternMul = Pattern.compile(regexMul);
         return patternMul.matcher(row);
